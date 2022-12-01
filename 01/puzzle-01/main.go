@@ -8,13 +8,18 @@ import (
 )
 
 func main() {
-	fileData, err := os.ReadFile("./input.txt")
-	checkError(err)
-
+	fileData := readFile("../input.txt")
 	maxCalories := countCalories(string(fileData))
 
 	fmt.Println(maxCalories)
 
+}
+
+func readFile(filePath string) string {
+	fileData, err := os.ReadFile(filePath)
+	checkError(err)
+
+	return string(fileData)
 }
 
 func checkError(e error) {
